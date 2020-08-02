@@ -55,7 +55,7 @@ If you want to know why OpenAPI Generator forked from Swagger Codegen, there's a
 
 We use a config file with values for the Rust code generator to specifically ask for a client that uses reqwest and that supports async operation.
 ```
-java -jar ../openapi-generator-cli.jar generate -i ../swagger.json -g rust --config=rust-gen-config.json --generate-alias-as-model -o strava_rs
+java -jar ./openapi-generator-cli.jar generate -i ./strava-api-spec.json -g rust --config=rust-gen-config.json --generate-alias-as-model -o strava_rs
 ```
 
 ## Build
