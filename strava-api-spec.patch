@@ -1,0 +1,72 @@
+--- strava-api-spec.json	2020-08-01 19:45:43.000000000 -0700
++++ ../swagger.json	2020-07-31 21:20:41.000000000 -0700
+@@ -171,7 +171,7 @@
+         "parameters": [
+           {
+             "name": "weight",
+-            "in": "path",
++            "in": "formData",
+             "description": "The weight of the athlete in kilograms.",
+             "required": true,
+             "type": "number",
+@@ -2301,6 +2301,14 @@
+         "description": "Returns a list of the routes created by the authenticated athlete. Private routes are filtered out unless requested by a token with read_all scope.",
+         "parameters": [
+           {
++            "name": "id",
++            "in": "path",
++            "description": "The identifier of the athlete. Must match the authenticated athlete.",
++            "required": true,
++            "type": "integer",
++            "format": "int64"
++          },
++          {
+             "$ref": "#/parameters/page"
+           },
+           {
+@@ -2347,16 +2355,15 @@
+         "tags": [
+           "Routes"
+         ],
++        "produces": [
++          "application/gpx+xml"
++        ],
+         "responses": {
+           "200": {
+             "description": "A GPX file with the route.",
+-            "content": {
+-              "application/gpx+xml" : {
+-                "schema": {
+-                   "type" : "string",
+-                   "format": "binary"
+-                }
+-              }
++            "schema": {
++              "type" : "string",
++              "format": "binary"
+             }
+           },
+           "default": {
+@@ -2386,16 +2393,15 @@
+         "tags": [
+           "Routes"
+         ],
++        "produces": [
++          "application/tcx+xml"
++        ],
+         "responses": {
+           "200": {
+             "description": "A TCX file with the route.",
+-            "content": {
+-              "application/tcx+xml" : {
+-                "schema": {
+-                   "type" : "string",
+-                   "format": "binary"
+-                }
+-              }
++            "schema": {
++              "type" : "string",
++              "format": "binary"
+             }
+           },
+           "default": {

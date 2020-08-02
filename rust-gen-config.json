@@ -1,0 +1,5 @@
+{
+    "library": "reqwest",
+    "supportAsync": true,
+    "packageName": "strava-rs"
+}
